@@ -61,7 +61,7 @@ export OAUTHLIB_INSECURE_TRANSPORT=1
 ```
 or uncomment the following line in *repl_app.py* file:
 ```python
- os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = "1"
+ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 ```
 5. Finally run the application:
 ```bash
