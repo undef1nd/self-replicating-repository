@@ -21,7 +21,7 @@ No matter what type of installation is chosen you need to register your new appl
 4. In **Authorization Callback URL** specify [http://127.0.0.1:5000/callback/github]() for localhost or [https://[your_app_name].herokuapp.com/callback/github]() for Heroku
 5. Save **client_id** and **client_secret** as they'll be needed in the next steps.
 
-You can go back and change Homepage URL and Authorization Callback URL any time.
+You can change Homepage URL and Authorization Callback URLs any time.
 
 
 ## Local Installation
