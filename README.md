@@ -73,7 +73,7 @@ python repl_app.py
 1. Login to Heroku and go [create new app](https://dashboard.heroku.com/new-app)
 2. Give name to your app in **App name** field. 
 3. On the next page choose the **Deployment method** that works best for you.
-4. On **Activity** tab expand **Config Vars** and set environment variables with your own values. Lookup their meaning in *Local Installation*
+4. On **Activity** tab expand **Config Vars** and set environment variables with your own values. Lookup their meaning in *Local Installation* section
 
 ```bash
 CLIENT_ID=your_github_client_id
