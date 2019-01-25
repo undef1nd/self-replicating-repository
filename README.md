@@ -4,22 +4,24 @@ This repository contains the Python code that forks itself into User's GitHub pr
 
 ## Flow Overview
 
-1. User clicks on the link of the deployed application. For example, [some_link_to_heroku]()
+1. User clicks on the link of the deployed application. For example, [https://self-repl-repo.herokuapp.com/](https://self-repl-repo.herokuapp.com/)
 2. User is redirected to GitHub site to allow access to his/her public profile for the application.
 3. Application forks its own repository into User's GitHub profile.
 
 ## Installation
 The code can be run locally or deployed to any hosting of your choise. For example, to Heroku. 
 
-## Installation Prerequisites
-No matter what type of installation is chosen you need to register your application via GitHub.
+#### Installation Prerequisites
+No matter what type of installation is chosen you need to register your new application at GitHub.
 1. Go to [Register a new OAuth application.
 ](https://github.com/settings/applications/new)
-2. Give your app some meaningful **Application name**. **Application desscription** is optional.
+2. Give your app some meaningful **Application name**. **Application description** is optional.
 3. In **Homepage URL** specify the one for your application:
-[http://127.0.0.1:5000](http://127.0.0.1:5000) if you deploy locally or [some_link_to_heroku]() for Heroku
-4. In **Authorization Callback URL** specify [http://127.0.0.1:5000/callback/github](http://127.0.0.1:5000/callback/github) for localhost or [some_link_to_heroku/callback/github](/callback/github) for Heroku
+[http://127.0.0.1:5000]() if you deploy locally or [https://[your_app_name].herokuapp.com/]() for Heroku
+4. In **Authorization Callback URL** specify [http://127.0.0.1:5000/callback/github]() for localhost or [https://[your_app_name].herokuapp.com/callback/github]() for Heroku
 5. Save **client_id** and **client_secret** as they'll be needed in the next steps.
+
+You can go back and change this URLs any time.
 
 
 ## Local Installation
@@ -44,8 +46,6 @@ pip install -r requirements.txt
 export CLIENT_ID=your_github_client_id
 export CLIENT_SECRET=your_github_client_secret
 export APP_SECRET=your_app_secret_id
-export REPO_OWNER=github_repository_owner
-export REPO_NAME= github_repository_that_will_be_forked
 ```
 For **CLIENT_ID** and **CLIENT_SECRET** values paste those obtained while registering app at GitHub (see *Installation Prerequisites* section).
 
@@ -67,9 +67,17 @@ or uncomment the following line in *repl_app.py* file:
 ```bash
 python repl_app.py
 ```
-6. Go to [http://127.0.0.1:5000](http://127.0.0.1:5000). If everything is done correctly you get your the repository forked to your profile. Congrats!
+6. Go to [http://127.0.0.1:5000](http://127.0.0.1:5000). If everything is done correctly you get the repository forked to your profile. Congrats!
 
 ## Heroku Installation
 1. Login to Heroku and go [create new app](https://dashboard.heroku.com/new-app)
 2. Give name to your app in **App name** field. 
-3. On the next page choose **GitHub** as the **Deployment method**. 
+3. On the next page choose the **Deployment method** that works best for you.
+4. On **Activity** tab expand **Config Vars** and set environment variables with your own values. Lookup their meaning in *Local Installation*
+
+```bash
+CLIENT_ID=your_github_client_id
+CLIENT_SECRET=your_github_client_secret
+APP_SECRET=your_app_secret_id
+```
+5. Click on Open app in Heroku dashboard to check that you can successfully fork the repository.
