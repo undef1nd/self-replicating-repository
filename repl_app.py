@@ -3,8 +3,7 @@ import os
 from flask import Flask, redirect, request, session, url_for
 from requests_oauthlib import OAuth2Session
 
-
-# This information is obtained upon registration of a new GitHub OAuth
+# This information is obtained upon registration of the new GitHub OAuth
 # application here: https://github.com/settings/applications/new
 # URLs taken from here: https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
 CLIENT_ID = os.getenv('CLIENT_ID')
@@ -24,7 +23,7 @@ app.secret_key = APP_SECRET
 
 @app.route('/')
 def auth():
-    """Redirect the user to Github OAuth endpoint - AUTH_BASE_URL
+    """Redirect the user to GitHub OAuth url - AUTH_BASE_URL
     Set the scope read/write public repos as per
     https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
     """
@@ -35,7 +34,7 @@ def auth():
 
 @app.route('/callback/github')
 def callback():
-    """Get user's token upon redirect from provider"""
+    """Get user's token after redirect from GitHub"""
     github = OAuth2Session(CLIENT_ID)
     token = github.fetch_token(TOKEN_URL, client_secret=CLIENT_SECRET, authorization_response=request.url)
     session['auth_token'] = token
@@ -62,6 +61,6 @@ def repl():
 
 
 if __name__ == "__main__":
-    # Uncomment the below line if the code needs to be run via http
-    # os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = "1"
+    # Uncomment the below line to run via HTTP - don't use in production
+    # os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
     app.run()
