@@ -81,3 +81,4 @@ CLIENT_SECRET=your_github_client_secret
 APP_SECRET=your_app_secret_id
 ```
 5. Click on **Open app** in the top right corner of Heroku dashboard to check that you can successfully fork the repository. 
+All done! 
